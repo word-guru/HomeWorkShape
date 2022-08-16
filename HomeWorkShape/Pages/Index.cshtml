@@ -1,0 +1,53 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Shapes";
+}
+
+<form method="post">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Picture</th>
+            </tr>
+        </thead>
+        @if (Model.shape2.Count < 1)
+        {
+            @foreach (var item in Model.shape)
+            {
+
+                @for (int i = 0; i < item.Key.Count; i++)
+                {
+                    <tr>
+                        <td>@item.Key[i]</td>
+                        <td>@item.Value[i]</td>
+                    </tr>
+                }
+
+            }
+        }
+        else
+        {
+            @foreach (var item in Model.shape2)
+            {
+                <tr>
+                    <td>@item.Key</td>
+                    <td>@item.Value</td>
+                </tr>
+
+            }
+        }
+
+
+    </table>
+
+    <input type="submit" value="Save File" asp-page-handler="SaveFile"></input>
+
+</form>
+<form asp-action="LoadFile" method="post" enctype="multipart/form-data">
+    <input type="file" name="uploadedFile" />
+    <br />
+    <input type="submit" value="Load" asp-page-handler="LoadFile" />
+</form>
+
