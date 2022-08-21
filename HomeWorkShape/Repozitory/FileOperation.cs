@@ -11,9 +11,9 @@ namespace HomeWorkShape.Repozitory.Interface
             this.env = env;
         }
 
-        public Dictionary<string, string> LoadFile(IFormFile uploadedFile)
+        public Dictionary<string, string> LoadFile()
         {
-            string path = "/File/" + uploadedFile.FileName;
+            string path = env.WebRootPath + "/File/TextFile.txt";
             var regex = new Regex(@"[a-zA-Z]+");
             Dictionary<string, string> result = new Dictionary<string, string>();
 

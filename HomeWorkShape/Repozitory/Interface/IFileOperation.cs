@@ -3,6 +3,6 @@
     public interface IFileOperation
     {
         void SaveFile(string text);
-        Dictionary<string, string> LoadFile(IFormFile uploadedFile);
+        Dictionary<string, string> LoadFile();
     }
 }

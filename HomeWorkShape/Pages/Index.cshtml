@@ -21,7 +21,7 @@
                 {
                     <tr>
                         <td>@item.Key[i]</td>
-                        <td>@item.Value[i]</td>
+                        <td><img class="card-img-top" src="@item.Value[i]" asp-append-version="true" /></td>
                     </tr>
                 }
 
@@ -33,7 +33,7 @@
             {
                 <tr>
                     <td>@item.Key</td>
-                    <td>@item.Value</td>
+                    <td><img class="card-img-top imageThumbnail" src="@item.Value" asp-append-version="true" /></td>
                 </tr>
 
             }
@@ -46,8 +46,6 @@
 
 </form>
 <form asp-action="LoadFile" method="post" enctype="multipart/form-data">
-    <input type="file" name="uploadedFile" />
-    <br />
     <input type="submit" value="Load" asp-page-handler="LoadFile" />
 </form>
 

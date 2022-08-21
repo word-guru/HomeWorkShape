@@ -23,31 +23,25 @@ namespace HomeWorkShape.Pages
             shape.Add(_repozitory.GetName(), _repozitory.GetPicture());
         }
 
-        public void OnPostSaveFile(Dictionary<string, string> list)
+        public void OnPostSaveFile()
         {
-            //animals.Add(_repozitory.GetName(), _repozitory.GetSound());
+            shape.Add(_repozitory.GetName(), _repozitory.GetPicture());
             string res = "";
-            /*foreach(var a in animals)
+            foreach(var a in shape)
             {
                 for(int i = 0; i < a.Key.Count; i++)
                 {
                     res += a.Key[i] + " : " + a.Value[i] + Environment.NewLine;
 
                 }
-            }*/
-            foreach (var item in list)
-            {
-                res += item.Key + item.Value;
             }
-
-
-
+           
             _fileOperation.SaveFile(res);
         }
 
-        public void OnPostLoadFile(IFormFile uploadedFile)
+        public void OnPostLoadFile()
         {
-            shape2 = _fileOperation.LoadFile(uploadedFile);
+            shape2 = _fileOperation.LoadFile();
         }
     }
 }
